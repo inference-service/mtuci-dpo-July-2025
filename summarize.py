@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from langchain.document_loaders import Docx2txtLoader
-from langchain.llms import YandexGPT
+from langchain_community.llms import YandexGPT
 from langchain.chains.summarize import load_summarize_chain
 from langchain.prompts import PromptTemplate
 from langchain.document_loaders import PyPDFLoader
@@ -104,7 +104,7 @@ def main():
             question_prompt=prompt,
             refine_prompt=refine_prompt,
             return_intermediate_steps=True,
-            input_key="input_documents", n 
+            input_key="input_documents",
             output_key="output_text",
         )
         result = chain({"input_documents": text}, return_only_outputs=True)
